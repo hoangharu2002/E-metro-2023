@@ -114,3 +114,45 @@ ALTER DATABASE [E-metro] SET  READ_WRITE
 
 --tao bang
 
+--tao bang User
+create table [User]
+(
+	ID varchar not null primary key,
+	[PASSWORD] varchar,
+	HOTEN varchar,
+	SDT varchar,
+	NGAYSINH date,
+	DONVI varchar,
+	LOAI varchar,
+	TINHTRANG varchar check(tinhtrang  in('khóa','không khóa'))
+)
+
+--tao bang congty
+create table CONGTY
+(
+	MACTY varchar not null primary key,
+	TENCTY varchar ,
+	WEBSITE		varchar,
+	DIACHI varchar,
+	SDT varchar
+)
+
+--taobang tuyentau
+create table TUYEN_TAU
+(
+	MA_tUYEN varchar not null primary key,
+	MACTY varchar foreign key references CONGTY(MACTY),
+	TENTUYEN varchar,
+	GAXUATPHAT varchar,
+	GAKETTHUC varchar,
+)
+
+--tao bang ga
+create table GA
+(
+	MAGA varchar not null primary key,
+	TENGA varchar,
+	VITRI varchar,
+	TINHTRANG varchar,
+	BANDO varchar
+)
