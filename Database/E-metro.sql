@@ -191,3 +191,13 @@ CREATE TABLE [dbo].[LICHSUVE](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+
+-- Them rang buoc cho thuoc tinh Loai
+ALTER TABLE VE
+ADD CONSTRAINT CK_VE_Loai
+CHECK (Loai IN ('thuong', 'thang'));
+
+-- Them rang buoc cho thuoc tinh TinhTrang
+ALTER TABLE VE
+ADD CONSTRAINT CK_VE_TinhTrang
+CHECK (TinhTrang IN ('Het han', 'Con han'));
