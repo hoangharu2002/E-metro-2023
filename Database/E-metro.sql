@@ -201,3 +201,94 @@ CHECK (Loai IN ('thuong', 'thang'));
 ALTER TABLE VE
 ADD CONSTRAINT CK_VE_TinhTrang
 CHECK (TinhTrang IN ('Het han', 'Con han'));
+
+
+/****** Object:  Table [dbo].[USER]    Script Date: 6/5/2023 10:01:49 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[USER](
+	[ID] [varchar](50) NOT NULL,
+	[Password] [varchar](50) NOT NULL,
+	[HOTEN] [varchar](50) NOT NULL,
+	[SDT] [nchar](10) NULL,
+	[NGAYSINH] [date] NULL,
+	[DONVI] [nchar](10) NULL,
+	[LOAI] [varchar](50) NULL,
+	[TINHTRANG] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_USER] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+/****** Object:  Table [dbo].[TuyenTau]    Script Date: 6/5/2023 10:07:26 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TuyenTau](
+	[MaTuyen] [nchar](10) NOT NULL,
+	[MaCty] [nchar](10) NOT NULL,
+	[TenTuyen] [varchar](50) NOT NULL,
+	[GaXuatPhat] [varchar](50) NULL,
+	[GaKetThuc] [varchar](50) NULL,
+	[Loai] [nchar](10) NULL,
+	[GiaVe] [money] NULL,
+	[GioBatDau] [time](7) NULL,
+	[GioKetThuc] [time](7) NULL,
+	[ThoiGianCho] [time](7) NULL,
+	[TinhTrang] [varchar](50) NULL,
+ CONSTRAINT [PK_TuyenTau] PRIMARY KEY CLUSTERED 
+(
+	[MaTuyen] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+/****** Object:  Table [dbo].[CongTy]    Script Date: 6/5/2023 10:09:19 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[CongTy](
+	[MaCty] [varchar](50) NOT NULL,
+	[TenCty] [varchar](50) NOT NULL,
+	[Website] [varchar](50) NULL,
+	[Diachi] [varchar](50) NOT NULL,
+	[SDT] [nchar](10) NULL,
+ CONSTRAINT [PK_CongTY] PRIMARY KEY CLUSTERED 
+(
+	[MaCty] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+/****** Object:  Table [dbo].[Ga]    Script Date: 6/5/2023 10:11:27 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Ga](
+	[MaGa] [varchar](50) NOT NULL,
+	[TenGa] [varchar](50) NULL,
+	[Vitri] [varchar](50) NULL,
+	[TinhTrang] [varchar](50) NULL,
+	[Bando] [varchar](50) NULL,
+ CONSTRAINT [PK_Ga] PRIMARY KEY CLUSTERED 
+(
+	[MaGa] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
